@@ -1,49 +1,73 @@
-<html>
+<<html>
   <head>
     <link rel="stylesheet" href="page2.css">
   </head>
   
   <body>
+
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgLaZjDzO7qOvA5ONMp-f2qz6R-o_USJM&libraries=visualization"
+      defer
+    ></script>
+
+
     <div class="form-container">
       <h1>Pothole Detection </h1>
       <form method = "GET" , action = "/page3">
-        <script type="text/javascript" src = "../mapstuff.js"> console.log("this file is ready")</script>
-        <div class="form-group">
-          <label class="current_location" id ="cur_loc" for="current_location">current location</label>
-          <input type="current_location" name="current_location" id="current_location" placeholder="current_location">
-        </div>
-        <div class="form-group">
-          <label class="destination" id ="fin_loc" for="destination">destination</label>
-          <input type="destination" name="destination" id="destination" placeholder="destination">
-        </div>
+      
+
         <label class="form-group">Keep me signed in
           <input type="checkbox" checked="checked">
           
         </label>
-        <!-- <div class="form-group">
-          <label class="name label-signup" for="name">Name</label>
-          <input type="text" name="name" id="name" placeholder="Name">
-        </div>
-        <div class="form-group">
-          <label class="username label-signup" for="username">Username</label>
-          <input type="text" name="username" id="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-          <label class="email label-signup" for="email">Email</label>
-          <input type="email" name="email" id="email" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label class="password label-signup" for="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Password">
-        </div>
-        -->
-        
-        <button class="button button1">Back</button>
-       
-        <button class="button button2" id ="next_done">Next</button>
-      </form>
-    </div>
-  </body>
-    
 
-  </html>
+
+            <div id="floating-panel">
+      <input id="address1" type="textbox" value="Source" />
+       <input id="address2" type="textbox" value="destination" />
+      <input id="submit" type="button" value="Geocode" />
+    </div>
+
+
+
+     <button class="button button1">Back</button>
+       
+        <button class="button button2" id ="next_done">evaluate</button>
+      
+
+
+
+   
+
+<script type="text/javascript">
+
+function initMap() {
+  
+  console.log("ryctgvhbijnkm")
+  const geocoder = new google.maps.Geocoder();
+  document.getElementById("submit").addEventListener("click", () => {
+    alert("hello world");
+    const address11 = document.getElementById("address1").value;
+
+    geocodeAddress(geocoder, address11);
+    const address22 = document.getElementById("address2").value;
+    geocodeAddress(geocoder, address22);
+    alert("rached")
+  });
+}
+
+function geocodeAddress(geocoder, address) {
+  
+  geocoder.geocode(
+    {
+      address: address
+    },
+    (results, status) => {
+      console.log(results[0].geometry.location)
+      console.log("hello")
+      alert("tuning")
+    })
+}
+
+
+</script>
