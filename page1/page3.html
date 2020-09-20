@@ -1,14 +1,73 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="page3.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Responsive Map</h1>
-        <div id="map_container"></div>
-          <div id="map"></div>
-        </div>
-        <button class="button button1">Done</button>	
-    
-    </body>
-</html>
+<<html>
+  <head>
+    <link rel="stylesheet" href="page2.css">
+  </head>
+  
+  <body>
+
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgLaZjDzO7qOvA5ONMp-f2qz6R-o_USJM&libraries=visualization"
+      defer
+    ></script>
+
+
+    <div class="form-container">
+      <h1>Pothole Detection </h1>
+      <form method = "GET" , action = "/page3">
+      
+
+        <label class="form-group">Keep me signed in
+          <input type="checkbox" checked="checked">
+          
+        </label>
+
+
+            <div id="floating-panel">
+      <input id="address1" type="textbox" value="Source" />
+       <input id="address2" type="textbox" value="destination" />
+      <input id="submit" type="button" value="Geocode" />
+    </div>
+
+
+
+     <button class="button button1">Back</button>
+       
+        <button class="button button2" id ="next_done">evaluate</button>
+      
+
+
+
+   
+
+<script type="text/javascript">
+
+function initMap() {
+  
+  console.log("ryctgvhbijnkm")
+  const geocoder = new google.maps.Geocoder();
+  document.getElementById("submit").addEventListener("click", () => {
+    alert("hello world");
+    const address11 = document.getElementById("address1").value;
+
+    geocodeAddress(geocoder, address11);
+    const address22 = document.getElementById("address2").value;
+    geocodeAddress(geocoder, address22);
+    alert("rached")
+  });
+}
+
+function geocodeAddress(geocoder, address) {
+  
+  geocoder.geocode(
+    {
+      address: address
+    },
+    (results, status) => {
+      console.log(results[0].geometry.location)
+      console.log("hello")
+      alert("tuning")
+    })
+}
+
+
+</script>
